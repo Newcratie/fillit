@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:36:54 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/21 08:32:39 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/11/21 09:44:55 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,11 @@ int		ft_form0_1(char *s);
 int		ft_form0_2(char *s);
 int		ft_form1_0(char *s);
 int		ft_form1_1(char *s);
+int		ft_form3_0(char *s);
+int		ft_form4_0(char *s);
+int		ft_form5_0(char *s);
+int		ft_form5_1(char *s);
+int		ft_form6_0(char *s);
+int		ft_form7_0(char *s);
+int		ft_form7_1(char *s);
 #endif

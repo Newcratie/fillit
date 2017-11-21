@@ -1,5 +1,5 @@
 SRC= main.c ft_read.c ft_realloc.c ft_file_to_tab.c ft_error_checker.c ft_tetrisplit.c ft_replace.c \
-	 ft_form_checker.c ft_form_a.c
+	 ft_form_checker.c ft_form_a.c ft_form_b.c ft_form_c.c
 
 NAME  = fillit
 
