@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:36:54 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/21 10:27:28 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 11:49:07 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # define EMPTY	str[i] == '.'
 # define S s[
 # define IS ] == 35
+
+# include "libft.h"
 char	*ft_realloc(char *ptr, int old_size, int new_size);
 char	*ft_read(int fd, char *str);
 char	**ft_file_to_tab(char *path);
@@ -38,4 +40,10 @@ int		ft_form6_0(char *s);
 int		ft_form7_0(char *s);
 int		ft_form7_1(char *s);
 int		ft_form8_0(char *s);
+void	ft_print_tab(char **tab, size_t size);
+char	**ft_translate(char **tab, size_t size, size_t i);
+int		ft_next_pos(char **tab, size_t size, size_t i);
+void	ft_freetab(char **tab, size_t size);
+char	**ft_generate_grid(size_t size);
+
 #endif

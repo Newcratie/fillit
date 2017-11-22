@@ -1,49 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_translate.c                                     :+:      :+:    :+:   */
+/*   ft_next_pos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 18:09:00 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 11:32:59 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/22 11:09:48 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/22 11:33:51 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include "libft.h"
-#include <stdio.h>
 
-char		**ft_translate(char **tab, size_t size, size_t i)
+int		ft_next_pos(char **tab, size_t size, size_t i)
 {
+	size_t	count;
+	size_t	j;
 	char	**ret;
-	size_t	k;
-	size_t	l;
-	size_t	m;
-	size_t	n;
 
 	if (!(ret = (char **)malloc(sizeof(char *) * size)))
 		return (NULL);
-	k = 0;
-	while (k < size)
+	j = -1;
+	while (++j < size)
+		ret[j] = ft_strnew(size);
+	count = 0;
+	i++;
+	while (i <= size * size - 1)
 	{
-		ret[k] = ft_strcnew(size, '.');
-		k++;
-	}
-	k = 0;
-	m = i % size;
-	while (m < size)
-	{
-		l = 0;
-		n = i / size;
-		while (n < size)
+		ret = ft_translate(tab, size, i);
+		j = 0;
+		count = 0;
+		while (j <= size * size - 1)
 		{
-			ret[n][m] = tab[l][k];
-			l++;
-			n++;
+			if (ret[j / size][j % size] != '.')
+				count++;
+			j++;
 		}
-		k++;
-		m++;
+		if (count == 4)
+		{
+			ft_freetab(ret, size);
+			return (i);
+		}
+		i++;
 	}
-	return (ret);
+	ft_freetab(ret, size);
+	free(ret);
+	return (size * size);
 }

@@ -1,49 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_translate.c                                     :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 18:09:00 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 11:32:59 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/22 11:20:44 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/22 11:21:10 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 #include "libft.h"
-#include <stdio.h>
 
-char		**ft_translate(char **tab, size_t size, size_t i)
+void	ft_freetab(char **tab, size_t size)
 {
-	char	**ret;
-	size_t	k;
-	size_t	l;
-	size_t	m;
-	size_t	n;
+	size_t i;
 
-	if (!(ret = (char **)malloc(sizeof(char *) * size)))
-		return (NULL);
-	k = 0;
-	while (k < size)
+	i = 0;
+	while (i < size)
 	{
-		ret[k] = ft_strcnew(size, '.');
-		k++;
+		free(tab[i]);
+		i++;
 	}
-	k = 0;
-	m = i % size;
-	while (m < size)
-	{
-		l = 0;
-		n = i / size;
-		while (n < size)
-		{
-			ret[n][m] = tab[l][k];
-			l++;
-			n++;
-		}
-		k++;
-		m++;
-	}
-	return (ret);
 }
