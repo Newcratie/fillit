@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:58:22 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 13:00:53 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:09:58 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ char ***ft_resize_tetri(char ****tetri, int nb_tetri, size_t new_size)
 	}	
 	i = -1;
 	while (++i < nb_tetri)
-	{
-		ft_freetab(tetri[0][i]);
-		free(tetri[0][i]);
-	}
+		ft_freetab(&tetri[0][i]);
 	free(*tetri);
 	return (ret);
 }

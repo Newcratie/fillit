@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:09:48 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 19:04:16 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:09:43 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,11 @@ int		ft_next_pos(char **tab, size_t size, size_t i)
 		}
 		if (count == 4)
 		{
-			ft_freetab(ret);
+			ft_freetab(&ret);
 			return (i);
 		}
 		i++;
 	}
-	ft_freetab(ret);
-	free(ret);
+	ft_freetab(&ret);
 	return (size * size);
 }
