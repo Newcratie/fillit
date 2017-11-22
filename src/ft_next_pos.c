@@ -6,9 +6,16 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:09:48 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 11:33:51 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 12:04:02 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**	Find the next possible position of the tetri in the grid.
+**	Return the index value i of this position with:
+**	line = i / size ; column = i % size
+**	If malloc for temporary char ** fails, return -1.
+*/
 
 #include "header.h"
 #include "libft.h"
@@ -20,7 +27,7 @@ int		ft_next_pos(char **tab, size_t size, size_t i)
 	char	**ret;
 
 	if (!(ret = (char **)malloc(sizeof(char *) * size)))
-		return (NULL);
+		return (-1);
 	j = -1;
 	while (++j < size)
 		ret[j] = ft_strnew(size);
