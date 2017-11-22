@@ -6,9 +6,20 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:24:11 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 10:52:01 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 19:18:20 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+**	Try to merge the tetri given in argument into the current grid 'CG'
+**	If the merge is possible, the CG grid is modified with addition of the
+**	tetri.
+**	If the merge fail CG is not modified.
+**
+**	Return value:
+**	0 if the merge fails.
+**	1 if the merge suceed.
+*/
 
 #include "libft.h"
 #include "header.h"

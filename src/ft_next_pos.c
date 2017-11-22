@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 11:09:48 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 18:55:44 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 19:04:16 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 **	Return the index value i of this position with:
 **	line = i / size ; column = i % size
 **	If malloc for temporary char ** fails, return -1.
+**	The original char array 'tab' is not modified
 */
 
 #include "header.h"
