@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:24:11 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 19:18:20 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:49:07 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,44 +54,4 @@ int		ft_add2grid(char **cg, char **tetri, size_t size)
 		i++;
 	}
 	return (1);
-}
-
-int		main()
-{
-	char	**tab;
-	char	**tetri;
-	size_t	size;
-	size_t	i;
-
-	size = 4;
-	tab = (char **)malloc(sizeof(char *) * size);
-	i = -1;
-	while (++i < size)
-		tab[i] = ft_strcnew(size, '.');
-	tab[0][2] = 'A';
-	tab[1][0] = 'A';
-	tab[1][1] = 'A';
-	tab[1][2] = 'A';
-	tetri = (char **)malloc(sizeof(char *) * size);
-	i = -1;
-	while (++i < size)
-		tetri[i] = ft_strcnew(size, '.');
-	tetri[1][2] = 'B';
-	tetri[2][0] = 'B';
-	tetri[2][1] = 'B';
-	tetri[2][2] = 'B';
-	ft_putendl("-----------Avant----------");
-	ft_putendl("cg:");
-	ft_print_tab(tab, size);
-	ft_putendl("tetri:");
-	ft_print_tab(tetri, size);
-	i = ft_add2grid(tab, tetri, size);
-	ft_putstr("\ni : ");
-	ft_putendl(ft_itoa(i));
-	ft_putendl("\n----------Apres----------");
-	ft_putendl("cg:");
-	ft_print_tab(tab, size);
-	ft_putendl("tetri:");
-	ft_print_tab(tetri, size);
-	return (0);
 }

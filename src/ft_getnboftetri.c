@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_tab.c                                     :+:      :+:    :+:   */
+/*   ft_getnboftetri.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 10:45:06 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 21:39:34 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/22 20:21:36 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/22 20:22:10 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "header.h"
 
-void	ft_print_tab(char **tab)
+int		ft_getnboftetri(char ***tab)
 {
-	int	i;
-	i = -1;
-	while (tab[++i])
-		ft_putendl(tab[i]);
+	int		size;
+
+	size = 0;
+	while (tab[size])
+		size++;
+	return (size);
 }

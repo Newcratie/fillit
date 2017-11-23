@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:36:54 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/22 20:57:41 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/22 21:51:12 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_form6_0(char *s);
 int		ft_form7_0(char *s);
 int		ft_form7_1(char *s);
 int		ft_form8_0(char *s);
-void	ft_print_tab(char **tab, size_t size);
+void	ft_print_tab(char **tab);
 char	**ft_translate(char **tab, size_t size, size_t i);
 int		ft_next_pos(char **tab, size_t size, size_t i);
 void	ft_freetab(char ***tab);
@@ -48,5 +48,7 @@ char	**ft_generate_grid(size_t size);
 char	***ft_resize_tetri(char ****tetri, int nb_tetri, size_t new_size);
 int		ft_gettabsize(char **tab);
 int		ft_getnboftetri(char ***tab);
+int		ft_fillit(char **cg, char ***tetri, int t, int i);
+int		ft_add2grid(char **cg, char **tetri, size_t size);
 
 #endif
