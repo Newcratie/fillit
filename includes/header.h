@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:36:54 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/22 21:51:12 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/23 20:36:03 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,12 @@ char	**ft_generate_grid(size_t size);
 char	***ft_resize_tetri(char ****tetri, int nb_tetri, size_t new_size);
 int		ft_gettabsize(char **tab);
 int		ft_getnboftetri(char ***tab);
-int		ft_fillit(char **cg, char ***tetri, int t, int i);
+int		ft_fillit(char **cg, char ***tetri, int t, int i, t_list **lst);
 int		ft_add2grid(char **cg, char **tetri, size_t size);
+void	ft_loop_cgs(char ***tetri);
+void	ft_save_sol(t_list **sol, char **cg, int cgs);
+void	ft_print_list(t_list *lst);
+
+t_list	*ft_lstlnew(void *content, size_t content_size);
 
 #endif
