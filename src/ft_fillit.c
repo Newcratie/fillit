@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 20:08:33 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:42:03 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/25 20:38:26 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		ft_fillit(char **cg, char ***tetri, int t, int i, t_list **lst_sol)
 	int		cgs;
 	int		nb_tetri;
 	char	**trans_tetri;
+
 	cgs = ft_gettabsize(cg);
 	nb_tetri = ft_getnboftetri(tetri);
 	if (t >= nb_tetri)
