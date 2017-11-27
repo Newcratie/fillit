@@ -5,53 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 10:24:11 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/22 21:49:07 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/26 18:28:38 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/26 19:28:45 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-**	Try to merge the tetri given in argument into the current grid 'CG'
-**	If the merge is possible, the CG grid is modified with addition of the
-**	tetri.
-**	If the merge fail CG is not modified.
-**
-**	Return value:
-**	0 if the merge fails.
-**	1 if the merge suceed.
-*/
 
 #include "libft.h"
 #include "header.h"
 
-int		ft_add2grid(char **cg, char **tetri, size_t size)
+void	ft_add2grid(char **cg, char **tetri, int index, int t)
 {
-	size_t	i;
-	size_t	j;
+	int i;
+	int j;
+	int n;
+	int size;
 
-	i = 0;
-	while (i < size)
+	size = ft_gettabsize(cg);
+	i = index / size;
+	j = index % size;
+	n = -1;
+	while (++n < 4)
 	{
-		j = 0;
-		while (j < size)
-		{
-			if (cg[j][i] != '.' && tetri[j][i] != '.')
-				return (0);
-			j++;
-		}
-		i++;
+		cg[i][j] = 'A' + t;
+		i = i + tetri[n][0];
+		j = j + tetri[n][1];
 	}
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (tetri[j][i] != '.')
-				cg[j][i] = tetri[j][i];
-			j++;
-		}
-		i++;
-	}
-	return (1);
 }

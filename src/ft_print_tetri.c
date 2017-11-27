@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlnew.c                                       :+:      :+:    :+:   */
+/*   ft_print_tetri.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 20:29:26 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:30:42 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/26 20:31:02 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/26 21:51:46 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "header.h"
 
-t_list	*ft_lstlnew(void const *content, size_t content_size)
+void	ft_print_tetri(char **tetri, int t, int size)
 {
-	t_list	*new;
+	int		j;
+	char	**tmp;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
-		return (NULL);
-	if (!(new->content = malloc(sizeof(*content) * content_size)))
-		return (NULL);
-	if (!content)
+	tmp = ft_generate_grid(size);
+	j = -1;
+	while (++j < size)
 	{
-		new->content = NULL;
-		new->content_size = 0;
+		if (ft_fitbis(tmp, tetri, j, size))
+		{
+			ft_add2grid(tmp, tetri, j, t);
+			j = size;
+		}
 	}
-	else
-	{
-		new->content = (void*)content;
-		new->content_size = content_size;
-	}
-	new->next = NULL;
-	return (new);
+	ft_print_tab(tmp);
+	ft_freetab(&tmp);
 }

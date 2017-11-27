@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:36:54 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/23 20:36:03 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/26 21:52:32 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,23 @@ int		ft_form6_0(char *s);
 int		ft_form7_0(char *s);
 int		ft_form7_1(char *s);
 int		ft_form8_0(char *s);
-void	ft_print_tab(char **tab);
-char	**ft_translate(char **tab, size_t size, size_t i);
-int		ft_next_pos(char **tab, size_t size, size_t i);
-void	ft_freetab(char ***tab);
+
 char	**ft_generate_grid(size_t size);
-char	***ft_resize_tetri(char ****tetri, int nb_tetri, size_t new_size);
+void	ft_freetab(char ***tab);
+int		ft_fit(char **cg, char **tetri, int index, int size);
+void	ft_print_tab(char **tab);
+void	ft_add2grid(char **cg, char **tetri, int index, int t);
 int		ft_gettabsize(char **tab);
 int		ft_getnboftetri(char ***tab);
-int		ft_fillit(char **cg, char ***tetri, int t, int i, t_list **lst);
-int		ft_add2grid(char **cg, char **tetri, size_t size);
+int		ft_next_i(char **cg, int index, int size);
+char	**ft_copygrid(char **cg, int size);
+int		ft_fillit(char **cg, char ***tetri, int t, int i);
+void	ft_print_tetri(char **tetri, int nb, int size);
+int		ft_fitbis(char **cg, char **tetri, int index, int size);
+
+char	**ft_translate(char **tab, size_t size, size_t i);
+int		ft_next_pos(char **tab, size_t size, size_t i);
+char	***ft_resize_tetri(char ****tetri, int nb_tetri, size_t new_size);
 void	ft_loop_cgs(char ***tetri);
 void	ft_save_sol(t_list **sol, char **cg, int cgs);
 void	ft_print_list(t_list *lst);
