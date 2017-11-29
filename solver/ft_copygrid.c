@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlnew.c                                       :+:      :+:    :+:   */
+/*   ft_copygrid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 20:29:26 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:30:42 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/26 19:46:24 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/26 20:03:08 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "header.h"
 
-t_list	*ft_lstlnew(void const *content, size_t content_size)
+char	**ft_copygrid(char **cg, int size)
 {
-	t_list	*new;
+	char	**ret;
+	int		i;
+	int		j;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	if (!(ret = (char **)malloc((sizeof(char*) * (size + 1)))))
 		return (NULL);
-	if (!(new->content = malloc(sizeof(*content) * content_size)))
-		return (NULL);
-	if (!content)
+	i = -1;
+	while (++i < size)
 	{
-		new->content = NULL;
-		new->content_size = 0;
+		if (!(ret[i] = (char *)malloc((sizeof(char) * (size + 1)))))
+			return (NULL);
 	}
-	else
+	i = -1;
+	while (++i < size)
 	{
-		new->content = (void*)content;
-		new->content_size = content_size;
+		j = -1;
+		while (++j < size)
+			ret[i][j] = cg[i][j];
+		ret[i][j] = '\0';
 	}
-	new->next = NULL;
-	return (new);
+	ret[i] = 0;
+	return (ret);
 }

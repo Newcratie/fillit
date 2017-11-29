@@ -6,7 +6,7 @@
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 21:09:27 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:32:52 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/11/24 14:30:46 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int				ft_islower(int c);
 int				ft_isupper(int c);
 char			*ft_strcapitalize(char *str);
 char			*ft_strcnew(size_t size, char c);
-int				ft_sqrt(int nb);
+int				ft_sqrt(int nb, char *option);
 
 #endif

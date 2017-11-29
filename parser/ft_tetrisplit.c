@@ -37,7 +37,7 @@ static char	*ft_dupli(char const *str, int len, char c)
 	return (dest);
 }
 
-static int	ft_ptrlen(char const *str)
+int	ft_ptrlen(char const *str)
 {
 	int		nb;
 	int		i;

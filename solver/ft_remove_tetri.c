@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_save_sol.c                                      :+:      :+:    :+:   */
+/*   ft_remove_tetri.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 17:45:41 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:37:38 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/28 15:01:10 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/28 15:11:05 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "header.h"
 
-void	ft_save_sol(t_list **sol, char **cg, int cgs)
+void	ft_remove_tetri(char **cg, char **tetri, int index)
 {
-	t_list	*new;
-	char	**tmp;
+	int i;
+	int j;
+	int n;
+	int size;
 
-	if (!(tmp = ft_translate(cg, cgs, 0)))
+	size = ft_gettabsize(cg);
+	i = index / size;
+	j = index % size;
+	n = -1;
+	while (++n < 4)
 	{
-		ft_putendl("erreur d'allocation dans save sol");
-		return ;
+		cg[i][j] = '.';
+		i = i + tetri[n][0];
+		j = j + tetri[n][1];
 	}
-	new = ft_lstlnew((void*)tmp, sizeof(cg));
-	ft_lstadd(sol, new);
 }

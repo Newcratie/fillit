@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_checker.c                                 :+:      :+:    :+:   */
+/*   ft_next_i.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 02:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/21 08:25:18 by abbenham         ###   ########.fr       */
+/*   Created: 2017/11/26 19:29:23 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/28 16:06:16 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "header.h"
 
-int		ft_error_checker(char **tab)
+int		ft_next_i(char **cg, int index, int size)
 {
-	int		i;
-	int		j;
+	int i;
+	int j;
 
-	i = 0;
-	j = 0;
-	while (tab[i])
+	index ++;
+	i = index / size;
+	j = index % size;
+	while (i < size)
 	{
-		if (0 == ft_form_checker(&tab[i]))
-			return (0);
-		else
-			i++;
-
+		while (j < size)
+		{
+			if (cg[i][j] == '.')
+				return (size * i + j);
+			j++;
+		}
+		j = 0;
+		i++;
 	}
-	return (1);
+	return (size * size);
 }

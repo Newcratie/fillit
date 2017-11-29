@@ -5,48 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/22 20:08:33 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:42:03 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/26 19:35:41 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/28 16:32:18 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-**	If one of the malloc fails, return -1
-*/
 
 #include "libft.h"
 #include "header.h"
 
-int		ft_fillit(char **cg, char ***tetri, int t, int i, t_list **lst_sol)
+int		ft_fillit(char **cg, char ***tetri, int t, int index)
 {
-	char	**local_cg;
 	int		cgs;
 	int		nb_tetri;
-	char	**trans_tetri;
+
 	cgs = ft_gettabsize(cg);
 	nb_tetri = ft_getnboftetri(tetri);
 	if (t >= nb_tetri)
 	{
-		ft_save_sol(lst_sol, cg, cgs);
-		ft_freetab(&cg);
+		ft_print_tab(cg);
 		return (1);
 	}
-	if (i > (cgs * cgs - 1))
-		return (1);
-	local_cg = ft_translate(cg, cgs, 0);
-	trans_tetri = ft_translate(tetri[t], cgs, i);
-	if (!local_cg || !trans_tetri)
-		return (-1);
-	if (ft_add2grid(local_cg, trans_tetri, cgs))
+	index = ft_next_i(cg, index, cgs);
+	if (index >= cgs * cgs)
+		return (0);
+	if (ft_fit(cg, tetri[t], index, cgs))
 	{
-		ft_freetab(&trans_tetri);
-		return (ft_fillit(local_cg, tetri, t + 1, 0, lst_sol) && ft_fillit(cg, tetri, t, ft_next_pos(tetri[t], cgs, i), lst_sol));
+		ft_add2grid(cg, tetri[t], index, t);
+		if (ft_fillit(cg, tetri, t + 1, -1))
+			return (1);
+		ft_remove_tetri(cg, tetri[t], index);
 	}
-	else
-	{
-		ft_freetab(&trans_tetri);
-		ft_freetab(&local_cg);
-		i = ft_next_pos(tetri[t], cgs, i);
-		return (ft_fillit(cg, tetri, t, i, lst_sol));
-	}
+	return (ft_fillit(cg, tetri, t, index));
 }

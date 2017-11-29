@@ -1,31 +1,33 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/21 11:43:58 by jjauzion          #+#    #+#              #
-#    Updated: 2017/11/21 12:00:12 by jjauzion         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+PARSER = parser/main.c parser/ft_read.c parser/ft_realloc.c parser/ft_file_to_tab.c \
+		 parser/ft_tetrisplit.c parser/ft_parser.c parser/ft_check.c \
 
-SRC = src/main.c src/ft_read.c src/ft_realloc.c src/ft_file_to_tab.c src/ft_error_checker.c\
-	 src/ft_tetrisplit.c src/ft_replace.c src/ft_form_checker.c src/ft_form_a.c src/ft_form_b.c\
-	 src/ft_form_c.c
+SOLVER = solver/ft_add2grid.c solver/ft_fillit.c solver/ft_generate_grid.c solver/ft_gettabsize.c\
+		 solver/ft_print_tab.c solver/ft_copygrid.c solver/ft_fit.c solver/ft_freetab.c\
+		 solver/ft_getnboftetri.c solver/ft_next_i.c solver/ft_print_tetri.c solver/ft_loop_cgs.c\
+		 solver/ft_remove_tetri.c jj_main.c solver/ft_fitbis.c
 
 NAME  = fillit
+NAME2  = parsing
 
 FLAGS = -Wall -Wextra -Werror
 
+NAME  = fillit
+
 all: $(NAME)
 
+test: $(NAME2)
+
 $(NAME): 
-	@gcc -o $(NAME) -Lincludes/ -Iincludes/ includes/libft.a $(FLAGS) $(SRC) 
+	@gcc -o $(NAME) -Lincludes/ -Iincludes/ includes/libft.a $(FLAGS) $(SOLVER) 
+
+$(NAME2):
+	@gcc -o $(NAME2) -Lincludes/ -Iincludes/ includes/libft.a $(FLAGS) $(PARSER) 
+
 clean:
-	@rm -f $(NAME)
+	@rm -f $(NAME) 
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME2)
 
 re : fclean all
+repar : fclean test

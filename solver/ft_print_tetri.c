@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_list.c                                    :+:      :+:    :+:   */
+/*   ft_print_tetri.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjauzion <jjauzion@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/23 19:21:48 by jjauzion          #+#    #+#             */
-/*   Updated: 2017/11/23 20:40:58 by jjauzion         ###   ########.fr       */
+/*   Created: 2017/11/26 20:31:02 by jjauzion          #+#    #+#             */
+/*   Updated: 2017/11/26 21:51:46 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "header.h"
 
-void	ft_print_list(t_list *lst)
+void	ft_print_tetri(char **tetri, int t, int size)
 {
-	ft_putendl("\nSolution :");
-	while (lst)
+	int		j;
+	char	**tmp;
+
+	tmp = ft_generate_grid(size);
+	j = -1;
+	while (++j < size)
 	{
-		ft_print_tab((char **)lst->content);
-		ft_putchar('\n');
-		lst = lst->next;
+		if (ft_fitbis(tmp, tetri, j, size))
+		{
+			ft_add2grid(tmp, tetri, j, t);
+			j = size;
+		}
 	}
+	ft_print_tab(tmp);
+	ft_freetab(&tmp);
 }
