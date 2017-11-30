@@ -124,12 +124,24 @@ char	***ft_correlative(char ***tet, int i)
 {
 	char	***cor;
 	char	**abs;
+	int	t;
+	int	h;
 
-	abs = ft_corabsolue(tet[0]);
+	t = 0;
+	h = 0;
 	cor = ft_cormalloc(i);
-	cor[0][0][0] = abs[1][0] - abs[0][0];
-	cor[0][0][1] = abs[1][1] - abs[0][1];
-
+	while (t < i)
+	{
+		abs = ft_corabsolue(tet[t]);
+		h = 0;
+		while (h < 3)
+		{
+			cor[t][h][0] = abs[h + 1][0] - abs[h][0];
+			cor[t][h][1] = abs[h + 1][1] - abs[h][1];
+			h++;
+		}
+		t++;
+	}
 	return (cor);
 }
 
@@ -137,31 +149,31 @@ char	***ft_parser(char **tab)
 {
 	char	***tet;
 	char	***cor;
-	char	**abs;
 	int		i;
 	int		j;
+	int		k;
 
 	j = 0;
+	k = 0;
 	i = ft_counttet(tab);
 	tet = ft_tabtotet(tab, i);
 	cor = ft_correlative(tet,i);
 	ft_putchar('\n'); 
-	abs = ft_corabsolue(tet[0]);
-	i = 0;
-	while (i < 4)
+	while (k < i)
 	{
 		j = 0;
-		while (j < 2)
+		while (j < 3)
 		{
-			ft_putnbr(abs[i][j++]);
+			ft_putnbr(cor[k][j][0]);
 			ft_putchar('_');
+			ft_putnbr(cor[k][j][1]);
+		ft_putchar('\n');
+			j++;
 		}
-			ft_putchar('\n');
-		i++;
+		ft_putchar('\n');
+		ft_putchar('\n');
+		k++;
 	}
-	ft_putnbr(cor[0][0][0]);
-			ft_putchar('\n');
-	ft_putnbr(cor[0][0][1]);
-			ft_putchar('\n');
+	ft_putchar('\n');
 	return (tet);
 }
