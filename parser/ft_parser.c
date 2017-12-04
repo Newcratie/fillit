@@ -107,8 +107,8 @@ char	***ft_correlative(char ***tet, int i)
 			h++;
 		}
 		t++;
+		free(abs);
 	}
-	free(abs);
 	return (cor);
 }
 
@@ -126,6 +126,6 @@ char	***ft_parser(char **tab)
 		return (NULL);
 	free(tet);
 	free(tab);
-		cor[i] = 0;
+	cor[i] = 0;
 	return (cor);
 }

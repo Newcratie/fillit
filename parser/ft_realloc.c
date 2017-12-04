@@ -18,7 +18,8 @@ char	*ft_realloc(char *ptr, int old_size, int new_size)
 
 	if (old_size >= new_size)
 		return (ptr);
-	new_ptr = (char *)malloc(sizeof(char) * new_size);
+	if (!(new_ptr = (char *)malloc(sizeof(char) * new_size)))
+		return (NULL);
 	if (ptr == NULL)
 		return (new_ptr);
 	ft_strcpy(new_ptr, ptr);

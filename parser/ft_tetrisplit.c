@@ -24,7 +24,7 @@ static char		*ft_dupli(char const *str, int len, char c)
 
 	i = 0;
 	j = 0;
-	if (!(dest = malloc(sizeof(char) * len + 1))) 
+	if (!(dest = (char *)malloc(sizeof(char) * len + 1))) 
 			return (NULL);
 	while (str[i] == c)
 		i++;
