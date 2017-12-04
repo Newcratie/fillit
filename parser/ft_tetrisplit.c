@@ -4,7 +4,7 @@
 #define I_WHITE (str[i] == c && str[i + 1] == c)
 #define J_WHITE (str[j] == c)
 
-static int	ft_strxlen(char const *str, char c)
+static int		ft_strxlen(char const *str, char c)
 {
 	int		i;
 
@@ -16,11 +16,11 @@ static int	ft_strxlen(char const *str, char c)
 	return (i);
 }
 
-static char	*ft_dupli(char const *str, int len, char c)
+static char		*ft_dupli(char const *str, int len, char c)
 {
 	int		i;
 	int		j;
-	char	*dest;
+	char		*dest;
 
 	i = 0;
 	j = 0;
@@ -38,7 +38,7 @@ static char	*ft_dupli(char const *str, int len, char c)
 	return (dest);
 }
 
-int	ft_ptrlen(char const *str)
+int			ft_ptrlen(char const *str)
 {
 	int		nb;
 	int		i;
@@ -59,24 +59,21 @@ int	ft_ptrlen(char const *str)
 	return (nb);
 }
 
-char		**ft_tetrisplit(char const *s, char c)
+char			**ft_tetrisplit(char const *s, char c)
 {
 	int		i;
 	int		k;
 	int		tab_len;
 	int		wd_len;
-	char	**split;
+	char		**split;
 
 	split = (NULL);
-	if (s == NULL)
-		return (NULL);
 	i = 0;
 	k = 0;
 	wd_len = 0;
 	tab_len = ft_ptrlen(s);
-	if (!(split = malloc(sizeof(char*) * tab_len + 1)))
+	if (!(split = malloc(sizeof(char*) * tab_len + 1)) || !s)
 		return (NULL);
-	!(*s) ? tab_len = 0 : 0;
 	while (k < tab_len)
 	{
 		i = i + wd_len;

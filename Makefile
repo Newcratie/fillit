@@ -19,7 +19,6 @@ SOLVER = solver/ft_add2grid.c solver/ft_fillit.c solver/ft_generate_grid.c\
 		 solver/ft_remove_tetri.c solver/main_fillit.c
 
 NAME  = fillit
-NAME2  = parsing
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -27,19 +26,14 @@ NAME  = fillit
 
 all: $(NAME)
 
-test: $(NAME2)
-
 $(NAME): 
 	@gcc -o $(NAME) -Lincludes/ -Iincludes/ includes/libft.a $(FLAGS) $(SOLVER) $(PARSER) 
 
-$(NAME2):
-	@gcc -o $(NAME2) -Lincludes/ -Iincludes/ includes/libft.a $(FLAGS) $(PARSER) 
 
 clean:
 	@rm -f $(NAME) 
 
 fclean: clean
-	@rm -f $(NAME) $(NAME2)
+	@rm -f $(NAME)
 
 re : fclean all
-repar : fclean test
