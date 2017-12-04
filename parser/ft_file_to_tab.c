@@ -33,18 +33,24 @@ int		ft_toolong(char *s)
 
 char	**ft_file_to_tab(char *path)
 {
-	int		fd;
+	int	fd;
+	int	i;
 	char	*str;
 	char	**tab;
 
+	i = -1;
 	str = NULL;
 	fd = open(path, O_RDWR);
 	str = ft_read(fd, str);
-	ft_toolong(str);
+	while (str[++i + 2])
+		if (str[i] == '\n' && str[i + 1] == '\n' && str[i + 2] == '\n')
+			return (NULL);
 	if (!(tab = ft_tetrisplit(str, '\n')) || -1 == ft_toolong(str))
 		return (NULL);
 	close(fd);
 	if ('\n' == str[ft_strlen(str) - 2])
 		return (NULL);
+	free(str);
+	str = NULL;
 	return (tab);
 }

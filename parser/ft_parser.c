@@ -23,11 +23,7 @@ int		ft_counttet(char **tab)
 	while (tab[i])
 	{
 		if (1 == ft_valide(tab[i]))
-		{
-//			ft_putendl("------------------");
-//			ft_putendl(tab[i]);
 			j++;
-		}
 		else if (-1 == ft_valide(tab[i]))
 			return (-1);
 		i++;
@@ -163,38 +159,20 @@ char	***ft_parser(char **tab)
 	char	***tet;
 	char	***cor;
 	int		i;
-	int		j;
-	int		k;
 
-	j = 0;
-	k = 0;
-	if (0 > (i = ft_counttet(tab)))
-	{
+	if (1 > (i = ft_counttet(tab)))
 		return (NULL);
-	}
 	if (!(tet = ft_tabtotet(tab, i)))
 		return (NULL);
 	if (!(cor = ft_correlative(tet,i)))
 		return (NULL);
-	/*
-	   ft_putchar('\n'); 
-	   while (k < i)
-	   {
-	   j = 0;
-	   while (j < 3)
-	   {
-	   ft_putnbr(cor[k][j][0]);
-	   ft_putchar('_');
-	   ft_putnbr(cor[k][j][1]);
-	   ft_putchar('\n');
-	   j++;
-	   }
-	   ft_putchar('\n');
-	   ft_putchar('\n');
-	   k++;
-	   }
-	   ft_putchar('\n');
-	   */
 	free(tet);
+	free(tab);
+	ft_putnbr(cor[0][0][0]);
+	ft_putnbr(cor[0][0][1]);
+	ft_putnbr(cor[0][1][0]);
+	ft_putnbr(cor[0][1][1]);
+	ft_putnbr(cor[0][2][0]);
+	ft_putnbr(cor[0][2][1]);
 	return (cor);
 }
