@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 16:59:56 by abbenham          #+#    #+#             */
-/*   Updated: 2017/12/02 16:36:21 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:35:50 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char	***ft_cormalloc(int i)
 				return (NULL);
 		j++;
 	}
+	cor[i] = 0;
 	return (cor);
 }
 
