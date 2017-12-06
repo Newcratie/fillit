@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 02:18:45 by abbenham          #+#    #+#             */
-/*   Updated: 2017/12/02 03:29:27 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/12/06 10:48:20 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "header.h"
 #include <fcntl.h>
 
-int		ft_toolong(char *s)
+int			ft_toolong(char *s)
 {
 	int		i;
 
@@ -31,10 +31,10 @@ int		ft_toolong(char *s)
 	return (1);
 }
 
-char	**ft_file_to_tab(char *path)
+char		**ft_file_to_tab(char *path)
 {
-	int	fd;
-	int	i;
+	int		fd;
+	int		i;
 	char	*str;
 	char	**tab;
 
@@ -55,14 +55,13 @@ char	**ft_file_to_tab(char *path)
 	return (tab);
 }
 
-int		ft_counttet(char **tab)
+int			ft_counttet(char **tab)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-
 	while (tab[i])
 	{
 		if (1 == ft_valide(tab[i]))
@@ -74,7 +73,7 @@ int		ft_counttet(char **tab)
 	return (j);
 }
 
-char	***ft_tetmalloc(int i)
+char		***ft_tetmalloc(int i)
 {
 	int		j;
 	int		k;

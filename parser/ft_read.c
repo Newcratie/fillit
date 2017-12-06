@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/21 01:40:55 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/21 01:48:35 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/12/06 10:48:30 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_read(int fd, char *str)
 	while ((size = read(fd, tmp, 16)) > 0)
 	{
 		size = size + old_size;
-		if(!(str = ft_realloc(str, old_size, size + 1)))
+		if (!(str = ft_realloc(str, old_size, size + 1)))
 			return (NULL);
 		ft_strcat(str, tmp);
 		old_size = size;

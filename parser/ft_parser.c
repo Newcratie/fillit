@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 16:59:56 by abbenham          #+#    #+#             */
-/*   Updated: 2017/12/05 21:10:37 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/12/06 10:46:34 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ char	**ft_corabsolue(char **tab)
 
 	i = 0;
 	h = 0;
-	if(!(abs = (char **)malloc(sizeof(char *) * 4)))
+	if (!(abs = (char **)malloc(sizeof(char *) * 4)))
 		return (NULL);
 	while (i < 4)
-		if(!(abs[i++] = (char *)malloc(sizeof(char) * 3)))
+		if (!(abs[i++] = (char *)malloc(sizeof(char) * 3)))
 			return (NULL);
 	i = -1;
 	while (tab[++i])
@@ -80,7 +80,6 @@ char	**ft_corabsolue(char **tab)
 	}
 	return (abs);
 }
-
 
 char	***ft_correlative(char ***tet, int i)
 {
