@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 16:59:56 by abbenham          #+#    #+#             */
-/*   Updated: 2017/12/04 14:35:50 by jjauzion         ###   ########.fr       */
+/*   Updated: 2017/12/06 11:14:05 by jjauzion         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,21 @@ char	**ft_corabsolue(char **tab)
 
 	i = 0;
 	h = 0;
-	if(!(abs = (char **)malloc(sizeof(char *) * 4)))
+	if (!(abs = (char **)malloc(sizeof(char *) * 4)))
 		return (NULL);
 	while (i < 4)
-		if(!(abs[i++] = (char *)malloc(sizeof(char) * 3)))
+		if (!(abs[i++] = (char *)malloc(sizeof(char) * 3)))
 			return (NULL);
-	i = 0;
-	while (tab[i])
+	i = -1;
+	while (tab[++i])
 	{
-		j = 0;
-		while (tab[i][j])
-		{
+		j = -1;
+		while (tab[i][++j])
 			if (tab[i][j] == '#')
 			{
 				abs[h][0] = i;
-				abs[h][1] = j;
-				h++;
+				abs[h++][1] = j;
 			}
-			j++;
-		}
-		i++;
 	}
 	return (abs);
 }
@@ -91,23 +86,20 @@ char	***ft_correlative(char ***tet, int i)
 {
 	char	***cor;
 	char	**abs;
-	int	t;
-	int	h;
+	int		t;
+	int		h;
 
-	t = 0;
-	h = 0;
+	t = -1;
 	cor = ft_cormalloc(i);
-	while (t < i)
+	while (++t < i)
 	{
 		abs = ft_corabsolue(tet[t]);
-		h = 0;
-		while (h < 3)
+		h = -1;
+		while (++h < 3)
 		{
 			cor[t][h][0] = abs[h + 1][0] - abs[h][0];
 			cor[t][h][1] = abs[h + 1][1] - abs[h][1];
-			h++;
 		}
-		t++;
 		free(abs);
 	}
 	return (cor);
@@ -123,7 +115,7 @@ char	***ft_parser(char **tab)
 		return (NULL);
 	if (!(tet = ft_tabtotet(tab, i)))
 		return (NULL);
-	if (!(cor = ft_correlative(tet,i)))
+	if (!(cor = ft_correlative(tet, i)))
 		return (NULL);
 	free(tet);
 	free(tab);

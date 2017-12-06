@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tetrisplit.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/06 10:46:22 by abbenham          #+#    #+#             */
+/*   Updated: 2017/12/06 10:50:09 by abbenham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "header.h"
 
@@ -20,12 +32,12 @@ static char		*ft_dupli(char const *str, int len, char c)
 {
 	int		i;
 	int		j;
-	char		*dest;
+	char	*dest;
 
 	i = 0;
 	j = 0;
-	if (!(dest = (char *)malloc(sizeof(char) * len + 1))) 
-			return (NULL);
+	if (!(dest = (char *)malloc(sizeof(char) * len + 1)))
+		return (NULL);
 	while (str[i] == c)
 		i++;
 	while (j < len && !(I_WHITE))
@@ -38,7 +50,7 @@ static char		*ft_dupli(char const *str, int len, char c)
 	return (dest);
 }
 
-int			ft_ptrlen(char const *str)
+int				ft_ptrlen(char const *str)
 {
 	int		nb;
 	int		i;
@@ -65,7 +77,7 @@ char			**ft_tetrisplit(char const *s, char c)
 	int		k;
 	int		tab_len;
 	int		wd_len;
-	char		**split;
+	char	**split;
 
 	split = (NULL);
 	i = 0;

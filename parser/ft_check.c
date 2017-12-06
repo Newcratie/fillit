@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 17:50:25 by abbenham          #+#    #+#             */
-/*   Updated: 2017/12/02 02:35:28 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/12/06 10:51:16 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_c_count(char *s, char c)
 
 	i = 0;
 	j = 0;
-	while(s[i])
+	while (s[i])
 		if (s[i++] == c)
 			j++;
 	return (j);
@@ -32,7 +32,7 @@ int		ft_nl(char *s)
 	return (0);
 }
 
-int  ft_surround(char *s)
+int		ft_surround(char *s)
 {
 	int i;
 	int good;
@@ -45,9 +45,9 @@ int  ft_surround(char *s)
 		{
 			if (s[i + 1] == '#')
 				good++;
-			if (s[i - 1] == '#') 
+			if (s[i - 1] == '#')
 				good++;
-			if (s[i + 5] == '#') 
+			if (s[i + 5] == '#')
 				good++;
 			if (s[i - 5] == '#')
 				good++;
