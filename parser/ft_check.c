@@ -12,55 +12,6 @@
 
 #include "header.h"
 
-void	ft_printab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		ft_putendl(tab[i]);
-		i++;
-	}
-}
-
-void	ft_printabl(char **tab)
-{
-	int	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		ft_putendl(tab[i]);
-		ft_putchar('\n');
-		i++;
-	}
-}
-
-void	ft_printnonl(char **tab)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-		ft_putchar('\n');
-	while (tab[i])
-	{
-		j = 0;
-		while (tab[i][j])
-		{
-			if (tab[i][j] == '\n')
-				ft_putchar(',');
-			else
-				ft_putchar(tab[i][j]);
-			j++;
-		}
-		ft_putchar('\n');
-		i++;
-	}
-		ft_putchar('\n');
-}
-
 int		ft_c_count(char *s, char c)
 {
 	int		i;
@@ -106,14 +57,6 @@ int  ft_surround(char *s)
 		i++;
 	}
 	return (0);
-}
-
-int		ft_nbrret(char *s, int	n)
-{
-	ft_putendl(s);
-	ft_putnbr(n);
-	ft_putendl("<--- has been returned");
-	return (n);
 }
 
 int		ft_valide(char *s)

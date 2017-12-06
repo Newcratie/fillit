@@ -12,52 +12,6 @@
 
 #include "header.h"
 
-int		ft_counttet(char **tab)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-
-	while (tab[i])
-	{
-		if (1 == ft_valide(tab[i]))
-		{
-//			ft_putendl("------------------");
-//			ft_putendl(tab[i]);
-			j++;
-		}
-		else if (-1 == ft_valide(tab[i]))
-			return (-1);
-		i++;
-	}
-	return (j);
-}
-
-char	***ft_tetmalloc(int i)
-{
-	int		j;
-	int		k;
-	char	***tetri;
-
-	j = 0;
-	k = 0;
-	if (!(tetri = (char ***)malloc(sizeof(char **) * i + 1)))
-		return (NULL);
-	while (j < i)
-	{
-		if (!(tetri[j] = (char **)malloc(sizeof(char *) * 5)))
-			return (NULL);
-		k = 0;
-		while (k < 3)
-			if (!(tetri[j][k++] = (char *)malloc(sizeof(char ) * 5)))
-				return (NULL);
-		j++;
-	}
-	return (tetri);
-}
-
 char	***ft_cormalloc(int i)
 {
 	int		j;
@@ -154,8 +108,8 @@ char	***ft_correlative(char ***tet, int i)
 			h++;
 		}
 		t++;
+		free(abs);
 	}
-	free(abs);
 	return (cor);
 }
 
@@ -164,38 +118,15 @@ char	***ft_parser(char **tab)
 	char	***tet;
 	char	***cor;
 	int		i;
-	int		j;
-	int		k;
 
-	j = 0;
-	k = 0;
-	if (0 > (i = ft_counttet(tab)))
-	{
+	if (1 > (i = ft_counttet(tab)))
 		return (NULL);
-	}
 	if (!(tet = ft_tabtotet(tab, i)))
 		return (NULL);
 	if (!(cor = ft_correlative(tet,i)))
 		return (NULL);
-	/*
-	   ft_putchar('\n'); 
-	   while (k < i)
-	   {
-	   j = 0;
-	   while (j < 3)
-	   {
-	   ft_putnbr(cor[k][j][0]);
-	   ft_putchar('_');
-	   ft_putnbr(cor[k][j][1]);
-	   ft_putchar('\n');
-	   j++;
-	   }
-	   ft_putchar('\n');
-	   ft_putchar('\n');
-	   k++;
-	   }
-	   ft_putchar('\n');
-	   */
 	free(tet);
+	free(tab);
+	cor[i] = 0;
 	return (cor);
 }

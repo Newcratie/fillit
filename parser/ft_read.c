@@ -27,7 +27,8 @@ char	*ft_read(int fd, char *str)
 	while ((size = read(fd, tmp, 16)) > 0)
 	{
 		size = size + old_size;
-		str = ft_realloc(str, old_size, size + 1);
+		if(!(str = ft_realloc(str, old_size, size + 1)))
+			return (NULL);
 		ft_strcat(str, tmp);
 		old_size = size;
 		str[size] = 0;
